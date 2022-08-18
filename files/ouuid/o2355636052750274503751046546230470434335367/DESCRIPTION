@@ -1,0 +1,75 @@
+Section-Description:
+                ------------------------------------------------
+                DESCRIPTION
+                ------------------------------------------------
+Title:
+                Find numeric values in a sequence that are near
+                other numeric values.
+Author:
+                D. Michael Parrish [aut]
+Version:
+                2022.8-18
+Date:
+                2022-08-18
+License:
+                AGPL-3
+Encoding:
+                UTF-8
+Type:
+                Package
+Package:
+                o2355636052750274503751046546230470434335367
+Maintainer:
+                Neat O <neatoverse@yahoo.com>
+Description:
+                Given a first numeric vector sequence and a
+                second numeric vector, find values in the first
+                that are nearest each of the values in the
+                second, in either the "left" (decreasing) or
+                "right" (increasing) directions.
+                    This file is
+                o2355636052750274503751046546230470434335367/
+                DESCRIPTION
+Section-Install:
+                ------------------------------------------------
+                INSTALL
+                ------------------------------------------------
+                To install: copy this package, including its
+                containing subdirectory, to a known directory.
+                For consistency with the package design, the
+                name of the subdirectory should be
+                o2355636052750274503751046546230470434335367
+Section-Help:
+                ------------------------------------------------
+                HELP
+                ------------------------------------------------
+Usage:
+                neighbors <- source ( "filepath" ) [[ 1 ]] ()
+                neighbors(X, x, direction = c ("left", "right"))
+Arguments:
+                X:  a monotonically increasing, numeric vector
+                    sequence
+                x:  a numeric vector
+Value:
+                An `integer` `vector` with one element for each
+                element of (little) `x`. The values of the
+                return are the indices of (big) `X` which are
+                the "left" or "right" neighbors of (little) `x`,
+                depending on the `direction` argument. Some
+                elements of the return may be NA, e.g., if there
+                is no element of (big) `X` to the "left" of an
+                element of (little) `x`.
+Examples:
+                filepath.neighbors <- paste0 (
+                    # INSERT FILEPATH PREFIX
+                    "/o2355636052750274503751046546230470434335367" ,
+                    "/neighbors.R" )
+                neighbors <- source ( filepath.neighbors ) [[ 1 ]]
+                # IF (BIG) `X` IS A SEQUENCE OF CONSECUTIVE
+                # INTEGERS BEGINNING AT 1, neighbors IS SIMILAR
+                # TO ROUNDING DOWN TO THE NEAREST INTEGER.
+                neighbors(1:9, c(exp(1) , pi))
+                # NO ELEMENT OF (BIG) `X` IS TO THE LEFT OF -Inf:---
+                neighbors(X = 1:9, x = c(-Inf, Inf))
+                # NO ELEMENT OF (BIG) `X` IS TO THE RIGHT OF Inf:---
+                neighbors(X = 1:9, x = c(-Inf, Inf), direction = "right")
