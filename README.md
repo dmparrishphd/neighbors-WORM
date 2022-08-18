@@ -1,2 +1,1 @@
-# neighbors-WORM
-Find numeric values in a sequence that are near other numeric values.
+[README](https://github.com/dmparrishphd/neighbors-CORW#readme).
